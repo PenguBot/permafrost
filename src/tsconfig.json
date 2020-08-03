@@ -5,9 +5,15 @@
 		"rootDir": ".",
 		"baseUrl": ".",
 		"composite": true,
-		"declaration": true
+		"declaration": true,
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true
 	},
 	"include": [
 		"."
+	],
+	"exclude": [
+		"./tokens.example.ts"
 	]
 }
