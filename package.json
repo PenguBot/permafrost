@@ -1,0 +1,56 @@
+{
+  "name": "@pengubot/permafrost",
+  "version": "0.0.0",
+  "description": "Billing microservice for pengubot",
+  "main": "dist/index.js",
+  "repository": "git@github.com:PenguBot/permafrost.git",
+  "author": "Charalampos Fanoulis <charalampos.fanoulis@gmail.com>",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "lint:fix": "eslint --fix --ext ts src",
+    "lint": "eslint --ext ts src",
+    "build": "tsc -b src",
+    "build:watch": "tsc -b src -w",
+    "build:clean": "tsc -b src --clean",
+    "typeorm": "node -r module-alias/register ./node_modules/typeorm/cli.js"
+  },
+  "dependencies": {
+    "fastify": "^3.1.1",
+    "fastify-helmet": "^4.0.2",
+    "fastify-sensible": "^3.0.1",
+    "pg": "^8.3.0",
+    "reflect-metadata": "^0.1.13",
+    "stripe": "^8.81.0",
+    "typeorm": "^0.2.25",
+    "typeorm-naming-strategies": "^1.1.0",
+    "veza": "^1.1.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "@pengubot/eslint-config": "^1.0.0",
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "@typescript-eslint/parser": "^3.7.1",
+    "eslint": "^7.6.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "typescript": "^3.9.7"
+  },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+            "pre-commit": "yarn lint-staged"
+        }
+    },
+    "commitlint": {
+        "extends": [
+            "@commitlint/config-conventional"
+        ]
+    },
+    "lint-staged": {
+        "*.ts": [
+            "eslint --fix --ext ts"
+        ]
+    }
+}
