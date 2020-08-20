@@ -1,6 +1,8 @@
 {
     "extends": ["@pengubot"],
     "rules": {
-        "no-process-env": "off"
+        "no-process-env": "off",
+        "no-void": "off",
+        "no-alert": "off"
     }
 }
